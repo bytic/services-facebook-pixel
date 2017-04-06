@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-4": {
-      "ByTIC\\FacebookPixel": "src"
+      "ByTIC\\FacebookPixel\\": "src"
     }
   }
 }
