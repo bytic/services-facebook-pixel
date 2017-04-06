@@ -1,0 +1,25 @@
+{
+  "name": "bytic/facebook-pixel",
+  "type": "library",
+  "description": "Facebook Pixel interaction library",
+  "keywords": [
+    "facebook",
+    "pixel"
+  ],
+  "homepage": "https://github.com/ByTIC/services-facebook-pixel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gabriel Solomon",
+      "email": "hello@gabrielsolomon.ro"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ByTIC\\FacebookPixel": "src"
+    }
+  }
+}
