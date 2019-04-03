@@ -31,9 +31,12 @@ class EventsFactory
     public static function eventClass($type)
     {
         switch ($type) {
-            case 'Search':
+            case 'AddToCart':
             case 'CompleteRegistration':
-                return '\ByTIC\FacebookPixel\Events\\'.$type;
+            case 'Donate':
+            case 'Lead':
+            case 'Search':
+                return '\ByTIC\FacebookPixel\Events\\' . $type;
             default:
                 return '\ByTIC\FacebookPixel\Events\CustomEvent';
         }

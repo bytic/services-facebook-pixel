@@ -3,7 +3,11 @@ declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel;
 
-use ByTIC\FacebookPixel\Events\AbstractEvent;
+use ByTIC\FacebookPixel\FacebookPixel\CanRenderTrait;
+use ByTIC\FacebookPixel\FacebookPixel\CustomEventsTrait;
+use ByTIC\FacebookPixel\FacebookPixel\HasEventsMemoryTrait;
+use ByTIC\FacebookPixel\FacebookPixel\HasEventsTrait;
+use ByTIC\FacebookPixel\FacebookPixel\HasPixelIdTrait;
 
 /**
  * Class FacebookPixel
@@ -12,79 +16,20 @@ use ByTIC\FacebookPixel\Events\AbstractEvent;
  */
 class FacebookPixel
 {
-
-    /**
-     * @var int
-     */
-    protected $pixelId;
-
-    /** @var AbstractEvent[] */
-    private $events = [];
-
-    /**
-     * @return int
-     */
-    public function getPixelId()
-    {
-        return $this->pixelId;
+    use CanRenderTrait {
+        render as renderTrait;
     }
+    use CustomEventsTrait;
+    use HasEventsTrait;
+    use HasEventsMemoryTrait;
+    use HasPixelIdTrait;
 
     /**
-     * @param int $pixelId
-     */
-    public function setPixelId($pixelId)
-    {
-        $this->pixelId = $pixelId;
-    }
-
-    /**
-     * @return AbstractEvent[]
-     */
-    public function getEvents()
-    {
-        return $this->events;
-    }
-
-    /**
-     * @param AbstractEvent[] $events
-     */
-    public function setEvents($events)
-    {
-        $this->events = $events;
-    }
-
-    /**
-     * Add Complete Registration event
-     */
-    public function completeRegistration()
-    {
-        $this->addEvent(EventsFactory::create('CompleteRegistration'));
-    }
-
-    /**
-     * @param AbstractEvent $event
-     */
-    public function addEvent($event)
-    {
-        $this->events[] = $event;
-    }
-
-    /**
-     * @return string
+     * @inheritDoc
      */
     public function render()
     {
-        return $this->renderTemplate('basecode') . $this->renderTemplate('events');
-    }
-
-    /**
-     * @param string $name
-     * @return string
-     */
-    protected function renderTemplate($name)
-    {
-        ob_start();
-        include(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . $name . '.php');
-        return ob_get_clean();
+        $this->importEventsFromMemory();
+        return $this->renderTrait();
     }
 }

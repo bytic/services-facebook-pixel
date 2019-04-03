@@ -1,14 +1,15 @@
 <?php
 
-namespace Nip\FacebookPixel\Tests;
+namespace Nip\FacebookPixel\Tests\FacebookPixel;
 
 use ByTIC\FacebookPixel\FacebookPixel;
+use Nip\FacebookPixel\Tests\AbstractTest;
 
 /**
  * Class FacebookPixelTest
- * @package Nip\FacebookPixel\Tests
+ * @package Nip\FacebookPixel\Tests\FacebookPixel
  */
-class FacebookPixelTest extends AbstractTest
+class HasPixelIdTraitTest extends AbstractTest
 {
     public function testSetPixelId()
     {
