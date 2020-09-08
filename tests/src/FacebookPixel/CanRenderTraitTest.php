@@ -30,6 +30,6 @@ class CanRenderTraitTest extends AbstractTest
         $pixel->addEvent(EventsFactory::create('Donate', ['currency' => "USD", 'value' => 30.00]));
         $html = $pixel->render();
 
-        self::assertStringContainsString("fbq('track', 'Donate', {\"currency\":\"USD\",\"value\":30});", $html);
+        self::assertStringContainsString("fbq('track', 'Donate', {currency:\"USD\",value:30});", $html);
     }
 }
