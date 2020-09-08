@@ -21,7 +21,8 @@ class HasEventsMemoryTraitTest extends AbstractTest
         $pixel->addEventInMemory(EventsFactory::create('CompleteRegistration'));
 
         $data = $_SESSION[EventsMemory::$sessionKey]['789'];
-        self::assertSame(CompleteRegistration::class, $data['CompleteRegistration']);
+        $event = unserialize($data['CompleteRegistration']);
+        self::assertInstanceOf(CompleteRegistration::class, $event);
     }
 
     public function testImportEventsFromMemoryOnRender()

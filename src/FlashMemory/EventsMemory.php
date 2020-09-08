@@ -41,7 +41,7 @@ class EventsMemory
      */
     public function addEvent($event)
     {
-        $this->next[trim($event->getTrackName())] = get_class($event);
+        $this->next[trim($event->getTrackName())] = serialize($event);
         $this->write();
     }
 
@@ -51,8 +51,9 @@ class EventsMemory
         if (isset($_SESSION[static::$sessionKey][$this->pixelId])) {
             $data = $_SESSION[static::$sessionKey][$this->pixelId];
             if (is_array($data)) {
-                foreach ($data as $name => $class) {
-                    $this->previous[$name] = new $class();
+                foreach ($data as $name => $serialized) {
+                    $event = unserialize($serialized);
+                    $this->previous[$name] = $event;
                 }
             }
             unset($_SESSION[static::$sessionKey][$this->pixelId]);
