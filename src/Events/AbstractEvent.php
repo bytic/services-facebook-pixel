@@ -16,6 +16,11 @@ abstract class AbstractEvent
     protected $trackName;
 
     /**
+     * @var array
+     */
+    protected $properties = [];
+
+    /**
      * @return string
      */
     public function getTrackName()
@@ -29,5 +34,21 @@ abstract class AbstractEvent
     public function setTrackName($trackName)
     {
         $this->trackName = $trackName;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProperties(): array
+    {
+        return $this->properties;
+    }
+
+    /**
+     * @param array $properties
+     */
+    public function setProperties(array $properties)
+    {
+        $this->properties = $properties;
     }
 }

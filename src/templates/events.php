@@ -7,7 +7,7 @@ $events = $this->getEvents();
 <?php if (is_array($events) && count($events)) { ?>
     <script>
         <?php foreach ($events as $event) { ?>
-        fbq('track', '<?php echo $event->getTrackName()?>');
+            fbq('track', '<?php echo $event->getTrackName()?>', <?php echo json_encode($event->getProperties()); ?>);
         <?php } ?>
     </script>
 <?php } ?>

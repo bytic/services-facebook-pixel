@@ -34,7 +34,7 @@ class HasEventsMemoryTraitTest extends AbstractTest
         $pixel->setPixelId('789');
         $html = $pixel->render();
 
-        self::assertContains("'track', 'CompleteRegistration'", $html);
-        self::assertContains("'track', 'AddToCart'", $html);
+        self::assertStringContainsString("'track', 'CompleteRegistration'", $html);
+        self::assertStringContainsString("'track', 'AddToCart'", $html);
     }
 }

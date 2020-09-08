@@ -1,3 +1,5 @@
 .idea/workspace.xml
 
-/vendor/
+vendor
+
+composer.lock

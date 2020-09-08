@@ -15,12 +15,15 @@ class EventsFactory
 
     /**
      * @param string $type
+     * @param array $properties
      * @return AbstractEvent
      */
-    public static function create($type)
+    public static function create($type, array $properties = [])
     {
         $class = self::eventClass($type);
+        /** @var AbstractEvent $event */
         $event = new $class();
+        $event->setProperties($properties);
         return $event;
     }
 
