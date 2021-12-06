@@ -41,7 +41,7 @@ class EventsMemory
      */
     public function addEvent($event)
     {
-        $this->next[trim($event->getTrackName())] = serialize($event);
+        $this->next[trim($event->getEventName())] = serialize($event);
         $this->write();
     }
 

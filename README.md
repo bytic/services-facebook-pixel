@@ -10,3 +10,9 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/bytic/services-facebook-pixel.svg?style=flat-square)](https://scrutinizer-ci.com/g/bytic/services-facebook-pixel)
 [![StyleCI](https://styleci.io/repos/87421067/shield?branch=master)](https://styleci.io/repos/87421067)
 [![Total Downloads](https://img.shields.io/packagist/dt/bytic/services-facebook-pixel.svg?style=flat-square)](https://packagist.org/packages/bytic/services-facebook-pixel)
+
+
+
+##### Inspiration
+* https://github.com/facebookincubator/facebook-for-magento2
+* 

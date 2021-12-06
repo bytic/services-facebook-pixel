@@ -13,7 +13,9 @@ abstract class AbstractEvent
     /**
      * @var string
      */
-    protected $trackName;
+    protected $eventName;
+
+    protected $eventId;
 
     /**
      * @var array
@@ -23,17 +25,33 @@ abstract class AbstractEvent
     /**
      * @return string
      */
-    public function getTrackName()
+    public function getEventName(): string
     {
-        return $this->trackName;
+        return $this->eventName;
     }
 
     /**
-     * @param string $trackName
+     * @param string $eventName
      */
-    public function setTrackName($trackName)
+    public function setEventName($eventName)
     {
-        $this->trackName = $trackName;
+        $this->eventName = $eventName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEventId()
+    {
+        return $this->eventId;
+    }
+
+    /**
+     * @param mixed $eventId
+     */
+    public function setEventId($eventId): void
+    {
+        $this->eventId = $eventId;
     }
 
     /**

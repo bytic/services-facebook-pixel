@@ -11,5 +11,5 @@ class Donate extends AbstractEvent
     /**
      * @var string
      */
-    protected $trackName = 'Donate';
+    protected $eventName = 'Donate';
 }

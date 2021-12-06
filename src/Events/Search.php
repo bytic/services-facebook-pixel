@@ -11,5 +11,5 @@ class Search extends AbstractEvent
     /**
      * @var string
      */
-    protected $trackName = 'Search';
+    protected $eventName = 'Search';
 }

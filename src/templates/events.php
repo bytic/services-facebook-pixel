@@ -15,8 +15,13 @@ $events = $this->getEvents();
             } else {
                 $propertiesString = '{}';
             }
+            $eventIdParams = '';
+            $eventId = $event->getEventId();
+            if (!empty($eventId)) {
+               $eventIdParams = ', {eventID: \''.$eventId.'\'}';
+            }
             ?>
-            fbq('track', '<?php echo $event->getTrackName()?>', <?php echo $propertiesString; ?>);
+            fbq('track', '<?php echo $event->getEventName()?>', <?= $propertiesString; ?><?= $eventIdParams; ?>);
         <?php } ?>
     </script>
 <?php } ?>

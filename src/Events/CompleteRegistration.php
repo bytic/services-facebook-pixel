@@ -12,5 +12,5 @@ class CompleteRegistration extends AbstractEvent
     /**
      * @var string
      */
-    protected $trackName = 'CompleteRegistration';
+    protected $eventName = 'CompleteRegistration';
 }

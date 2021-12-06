@@ -11,5 +11,5 @@ class Lead extends AbstractEvent
     /**
      * @var string
      */
-    protected $trackName = 'Lead';
+    protected $eventName = 'Lead';
 }

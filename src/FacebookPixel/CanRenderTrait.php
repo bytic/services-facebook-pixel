@@ -16,7 +16,7 @@ trait CanRenderTrait
     public function render($options = null)
     {
         return
-            $this->shouldRenderBaseCode($options) ? $this->renderTemplate('basecode') : ''
+            ($this->shouldRenderBaseCode($options) ? $this->renderTemplate('basecode') : '')
             . $this->renderTemplate('events');
     }
 

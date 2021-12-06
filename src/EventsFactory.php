@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ByTIC\FacebookPixel;
 
 use ByTIC\FacebookPixel\Events\AbstractEvent;
+use ByTIC\FacebookPixel\Utility\EventIdGenerator;
 
 /**
  * Class EventsFactory
@@ -18,11 +19,15 @@ class EventsFactory
      * @param array $properties
      * @return AbstractEvent
      */
-    public static function create($type, array $properties = [])
+    public static function create($type, array $properties = [], $eventId = null)
     {
         $class = self::eventClass($type);
         /** @var AbstractEvent $event */
         $event = new $class();
+
+        $eventId = $eventId === null ? EventIdGenerator::generate() : $eventId;
+        $event->setEventId($eventId);
+
         $event->setProperties($properties);
         return $event;
     }
