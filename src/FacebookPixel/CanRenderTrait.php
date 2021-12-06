@@ -13,9 +13,11 @@ trait CanRenderTrait
     /**
      * @return string
      */
-    public function render()
+    public function render($options = null)
     {
-        return $this->renderTemplate('basecode') . $this->renderTemplate('events');
+        return
+            $this->shouldRenderBaseCode($options) ? $this->renderTemplate('basecode') : ''
+            . $this->renderTemplate('events');
     }
 
     /**
@@ -38,5 +40,13 @@ trait CanRenderTrait
             $this->basePath = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'templates';
         }
         return $this->basePath;
+    }
+
+    protected function shouldRenderBaseCode($options = null): bool
+    {
+        if ($options === 'events') {
+            return false;
+        }
+        return true;
     }
 }

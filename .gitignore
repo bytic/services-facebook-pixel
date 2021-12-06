@@ -1,5 +1,7 @@
 .idea/workspace.xml
 
+.phpunit.result.cache
+
 vendor
 
 composer.lock

@@ -27,9 +27,9 @@ class FacebookPixel
     /**
      * @inheritDoc
      */
-    public function render()
+    public function render($options = null)
     {
         $this->importEventsFromMemory();
-        return $this->renderTrait();
+        return $this->renderTrait($options);
     }
 }
