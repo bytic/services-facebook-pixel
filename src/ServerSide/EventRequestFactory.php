@@ -89,7 +89,7 @@ class EventRequestFactory
                     $this->onRejected
                 );
         } catch (\Exception $e) {
-//            $this->fbeHelper->log(json_encode($e));
+//            var_dump($e);
         }
     }
 }

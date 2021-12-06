@@ -19,8 +19,8 @@ trait HasRequestsTrait
     {
         $this->initialize();
 
-        $pixel = $pixel instanceof FacebookPixel ? $pixel->getPixelId() : $pixel;
-        $request = EventRequestFactory::create($pixel);
+        $pixel = $pixel instanceof FacebookPixel ? $pixel : $this->pixel();
+        $request = EventRequestFactory::create($pixel->getPixelId());
 
         ///                ->setPartnerAgent($this->fbeHelper->getPartnerAgent())
         $testCode = $this->getTestEventCode();

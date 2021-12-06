@@ -8,8 +8,5 @@ namespace ByTIC\FacebookPixel\Events;
  */
 class Lead extends AbstractEvent
 {
-    /**
-     * @var string
-     */
-    protected $eventName = 'Lead';
+    public const NAME = 'Lead';
 }

@@ -8,8 +8,5 @@ namespace ByTIC\FacebookPixel\Events;
  */
 class AddToCart extends AbstractEvent
 {
-    /**
-     * @var string
-     */
-    protected $eventName = 'AddToCart';
+    public const NAME = 'AddToCart';
 }

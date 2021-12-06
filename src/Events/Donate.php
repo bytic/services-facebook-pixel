@@ -8,8 +8,5 @@ namespace ByTIC\FacebookPixel\Events;
  */
 class Donate extends AbstractEvent
 {
-    /**
-     * @var string
-     */
-    protected $eventName = 'Donate';
+    public const NAME = 'Donate';
 }

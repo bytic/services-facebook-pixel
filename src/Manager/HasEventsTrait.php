@@ -18,10 +18,22 @@ trait HasEventsTrait
      */
     public function sendEvent(AbstractEvent $event, $pixelId = null)
     {
+        $this->sendEvents([$event], $pixelId);
+    }
+
+    /**
+     * @param $events
+     * @param $pixelId
+     * @return void
+     */
+    public function sendEvents($events, $pixelId = null)
+    {
         $this->initialize();
         $request = $this->createRequest($pixelId);
 
-        $events = [ServerEventFactory::fromEvent($event)];
+        $events = array_map(function ($event) {
+            return ServerEventFactory::fromEvent($event);
+        }, $events);
         $request->setEvents($events);
 
         $request->execute();

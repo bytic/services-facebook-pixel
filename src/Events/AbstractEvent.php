@@ -17,10 +17,19 @@ abstract class AbstractEvent
 
     protected $eventId;
 
+    public const NAME = null;
+
     /**
      * @var array
      */
     protected $properties = [];
+
+    public function __construct()
+    {
+        if (!empty(static::NAME)) {
+            $this->eventName = static::NAME;
+        }
+    }
 
     /**
      * @return string

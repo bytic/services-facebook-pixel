@@ -9,8 +9,5 @@ namespace ByTIC\FacebookPixel\Events;
  */
 class CompleteRegistration extends AbstractEvent
 {
-    /**
-     * @var string
-     */
-    protected $eventName = 'CompleteRegistration';
+    public const NAME = 'CompleteRegistration';
 }

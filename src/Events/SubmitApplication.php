@@ -6,7 +6,7 @@ namespace ByTIC\FacebookPixel\Events;
  * Class Search
  * @package ByTIC\FacebookPixel\Events
  */
-class Search extends AbstractEvent
+class SubmitApplication extends AbstractEvent
 {
-    public const NAME =  'Search';
+    public const NAME =  'SubmitApplication';
 }

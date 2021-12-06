@@ -46,7 +46,7 @@ class EventsFactory
             case 'Search':
                 return '\ByTIC\FacebookPixel\Events\\' . $type;
             default:
-                return '\ByTIC\FacebookPixel\Events\CustomEvent';
+                return \ByTIC\FacebookPixel\Events\CustomEvent::class;
         }
     }
 }
