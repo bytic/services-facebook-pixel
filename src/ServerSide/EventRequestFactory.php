@@ -1,10 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\ServerSide;
 
+use Exception;
 use FacebookAds\Object\ServerSide\EventRequestAsync;
 
+/**
+ *
+ */
 class EventRequestFactory
 {
     /**
@@ -24,6 +29,7 @@ class EventRequestFactory
 
     /**
      * @param $pixel
+     *
      * @return static
      */
     public static function create($pixel): self
@@ -42,6 +48,7 @@ class EventRequestFactory
     /**
      * @param $method
      * @param $args
+     *
      * @return false|mixed
      */
     public function __call($method, $args)
@@ -51,6 +58,7 @@ class EventRequestFactory
 
     /**
      * @param $code
+     *
      * @return $this
      */
     public function setTestEventCode($code): self
@@ -60,23 +68,17 @@ class EventRequestFactory
         return $this;
     }
 
-    /**
-     * @param callable|null $onFulfilled
-     * @return self
-     */
     public function setOnFulfilled(?callable $onFulfilled): self
     {
         $this->onFulfilled = $onFulfilled;
+
         return $this;
     }
 
-    /**
-     * @param callable|null $onRejected
-     * @return self
-     */
     public function setOnRejected(?callable $onRejected): self
     {
         $this->onRejected = $onRejected;
+
         return $this;
     }
 
@@ -88,7 +90,7 @@ class EventRequestFactory
                     $this->onFulfilled,
                     $this->onRejected
                 );
-        } catch (\Exception $e) {
+        } catch (Exception $exception) {
 //            var_dump($e);
         }
     }

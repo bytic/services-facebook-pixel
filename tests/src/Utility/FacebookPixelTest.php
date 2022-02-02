@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nip\FacebookPixel\Tests\Utility;
 
@@ -10,11 +11,10 @@ use Nip\FacebookPixel\Tests\AbstractTest;
  */
 class FacebookPixelTest extends AbstractTest
 {
-    public function test_call_static()
+    public function testCallStatic()
     {
-        $id = '12345';
-        FacebookPixel::setAccessToken($id);
-        self::assertSame($id, FacebookPixel::getAccessToken());
+        $pixelId = '12345';
+        FacebookPixel::setAccessToken($pixelId);
+        self::assertSame($pixelId, FacebookPixel::getAccessToken());
     }
 }
-

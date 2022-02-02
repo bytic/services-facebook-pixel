@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\Manager;
 
 use ByTIC\FacebookPixel\FacebookPixel;
 use ByTIC\FacebookPixel\PixelFactory;
+use Exception;
 
 /**
  *
@@ -15,8 +17,10 @@ trait HasPixelsTrait
 
     /**
      * @param $id
+     *
      * @return FacebookPixel|false|mixed
-     * @throws \Exception
+     *
+     * @throws Exception
      */
     public function pixel($id = null)
     {
@@ -27,15 +31,20 @@ trait HasPixelsTrait
         if (!empty($id)) {
             $pixel = PixelFactory::create($id);
             $this->addPixel($pixel);
+
             return $pixel;
         }
         if (count($this->pixels) > 0) {
             return reset($this->pixels);
         }
 
-        throw new \Exception('No pixel found');
+        throw new Exception('No pixel found');
     }
 
+    /**
+     * @param $id
+     * @return FacebookPixel
+     */
     protected function createPixel($id): FacebookPixel
     {
         return PixelFactory::create($id);

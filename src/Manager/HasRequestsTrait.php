@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\Manager;
@@ -13,7 +14,6 @@ trait HasRequestsTrait
 {
     /**
      * @param string|FacebookPixel $pixel
-     * @return EventRequestFactory
      */
     protected function createRequest($pixel): EventRequestFactory
     {

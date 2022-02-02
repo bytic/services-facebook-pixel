@@ -1,17 +1,17 @@
 <?php
+declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\FacebookPixel;
 
 use ByTIC\FacebookPixel\EventsFactory;
 
 /**
- * Trait CustomEventsTrait
- * @package ByTIC\FacebookPixel\FacebookPixel
+ * Trait CustomEventsTrait.
  */
 trait CustomEventsTrait
 {
     /**
-     * Add Complete Registration event
+     * Add Complete Registration event.
      */
     public function completeRegistration()
     {

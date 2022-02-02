@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\Utility;
@@ -15,10 +16,7 @@ use ByTIC\FacebookPixel\FacebookPixelManager;
  */
 class FacebookPixel
 {
-
     /**
-     * @param string $method
-     * @param array $parameters
      * @return false|mixed
      */
     public static function __callStatic(string $method, array $parameters)
@@ -26,12 +24,13 @@ class FacebookPixel
         return call_user_func_array([static::instance(), $method], $parameters);
     }
 
-    public static function instance(): \ByTIC\FacebookPixel\FacebookPixelManager
+    public static function instance(): FacebookPixelManager
     {
         static $instance;
         if (!($instance instanceof FacebookPixelManager)) {
             $instance = new FacebookPixelManager();
         }
+
         return $instance;
     }
 }

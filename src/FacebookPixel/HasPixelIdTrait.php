@@ -1,10 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\FacebookPixel;
 
 /**
- * Trait HasPixelIdTrait
- * @package ByTIC\FacebookPixel\FacebookPixel
+ * Trait HasPixelIdTrait.
  */
 trait HasPixelIdTrait
 {

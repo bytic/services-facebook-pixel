@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\FacebookPixel;
 
@@ -6,8 +7,7 @@ use ByTIC\FacebookPixel\Events\AbstractEvent;
 use ByTIC\FacebookPixel\FlashMemory\EventsMemory;
 
 /**
- * Trait HasEventsTrait
- * @package ByTIC\FacebookPixel\FacebookPixel
+ * Trait HasEventsTrait.
  */
 trait HasEventsMemoryTrait
 {
@@ -34,9 +34,10 @@ trait HasEventsMemoryTrait
      */
     protected function getEventsMemory()
     {
-        if ($this->memory === null) {
+        if (null === $this->memory) {
             $this->memory = new EventsMemory($this->getPixelId());
         }
+
         return $this->memory;
     }
 }

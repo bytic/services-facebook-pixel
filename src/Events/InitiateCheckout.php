@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\Events;
 
 /**
- * Class InitiateCheckout
+ * Class InitiateCheckout.
  *
  * @author Gabriel Solomon <hello@gabrielsolomon.ro>
  */

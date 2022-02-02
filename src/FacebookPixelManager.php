@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel;
@@ -14,5 +15,4 @@ class FacebookPixelManager
     use Manager\HasParamsTrait;
     use Manager\HasPixelsTrait;
     use Manager\HasRequestsTrait;
-
 }

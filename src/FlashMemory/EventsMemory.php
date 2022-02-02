@@ -1,12 +1,12 @@
 <?php
+declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\FlashMemory;
 
 use ByTIC\FacebookPixel\Events\AbstractEvent;
 
 /**
- * Class EventsMemory
- * @package ByTIC\FacebookPixel\FlashMemory
+ * Class EventsMemory.
  */
 class EventsMemory
 {
@@ -30,9 +30,10 @@ class EventsMemory
      */
     public function getPrevious()
     {
-        if ($this->previous === null) {
+        if (null === $this->previous) {
             $this->read();
         }
+
         return $this->previous;
     }
 
@@ -67,7 +68,7 @@ class EventsMemory
 
     protected function write()
     {
-        $previous = isset($_SESSION[static::$sessionKey][$this->pixelId]) ? $_SESSION[static::$sessionKey][$this->pixelId] : [];
+        $previous = $_SESSION[static::$sessionKey][$this->pixelId] ?? [];
         $data = array_merge($previous, $this->next);
         $_SESSION[static::$sessionKey][$this->pixelId] = $data;
     }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel;
@@ -10,9 +11,7 @@ use ByTIC\FacebookPixel\FacebookPixel\HasEventsTrait;
 use ByTIC\FacebookPixel\FacebookPixel\HasPixelIdTrait;
 
 /**
- * Class FacebookPixel
- *
- * @author Gabriel Solomon <hello@gabrielsolomon.ro>
+ * Class FacebookPixel.
  */
 class FacebookPixel
 {
@@ -25,11 +24,12 @@ class FacebookPixel
     use HasPixelIdTrait;
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function render($options = null)
     {
         $this->importEventsFromMemory();
+
         return $this->renderTrait($options);
     }
 }

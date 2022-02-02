@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nip\FacebookPixel\Tests\FacebookPixel;
 
@@ -7,12 +8,11 @@ use ByTIC\FacebookPixel\FacebookPixel;
 use Nip\FacebookPixel\Tests\AbstractTest;
 
 /**
- * Class CanRenderTraitTest
- * @package Nip\FacebookPixel\Tests\FacebookPixel
+ * Class CanRenderTraitTest.
  */
 class CanRenderTraitTest extends AbstractTest
 {
-    public function test_SimpleRender()
+    public function testSimpleRender()
     {
         $pixel = new FacebookPixel();
         $pixel->setPixelId('9999999');
@@ -22,12 +22,12 @@ class CanRenderTraitTest extends AbstractTest
         self::assertStringContainsString('facebook.com', $html);
     }
 
-    public function test_renderEvents()
+    public function testRenderEvents()
     {
         $pixel = new FacebookPixel();
         $pixel->setPixelId('9999999');
         $pixel->addEvent(EventsFactory::create('Lead'));
-        $pixel->addEvent(EventsFactory::create('Donate', ['currency' => "USD", 'value' => 30.00]));
+        $pixel->addEvent(EventsFactory::create('Donate', ['currency' => 'USD', 'value' => 30.00]));
         $html = $pixel->render();
 
         self::assertStringContainsString("fbq('track', 'Donate', {currency:\"USD\",value:30}", $html);

@@ -1,12 +1,12 @@
 <?php
+declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\FacebookPixel;
 
 use ByTIC\FacebookPixel\Events\AbstractEvent;
 
 /**
- * Trait HasEventsTrait
- * @package ByTIC\FacebookPixel\FacebookPixel
+ * Trait HasEventsTrait.
  */
 trait HasEventsTrait
 {
@@ -18,15 +18,15 @@ trait HasEventsTrait
      */
     public function getEvents()
     {
-        if ($this->events === null) {
+        if (null === $this->events) {
             $this->initEvents();
         }
+
         return $this->events;
     }
 
     protected function initEvents()
     {
-
     }
 
     /**

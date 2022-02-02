@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Nip\FacebookPixel\Tests\FacebookPixel;
 
@@ -9,8 +10,7 @@ use ByTIC\FacebookPixel\FlashMemory\EventsMemory;
 use Nip\FacebookPixel\Tests\AbstractTest;
 
 /**
- * Class HasEventsMemoryTraitTest
- * @package Nip\FacebookPixel\Tests\FacebookPixel
+ * Class HasEventsMemoryTraitTest.
  */
 class HasEventsMemoryTraitTest extends AbstractTest
 {

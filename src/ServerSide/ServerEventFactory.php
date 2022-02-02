@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel\ServerSide;
@@ -19,7 +20,6 @@ class ServerEventFactory
      * @param $event
      * @param $properties
      * @param $eventId
-     * @return Event
      */
     public static function fromEvent($event, $properties = [], $eventId = null): Event
     {
