@@ -15,10 +15,10 @@
   ],
   "homepage": "https://github.com/ByTIC/services-facebook-pixel",
   "require": {
-    "php": "^7.2 || ^8.0",
+    "php": "^7.4 || ^8.0",
     "ext-json": "*",
     "ext-openssl": "*",
-    "facebook/php-business-sdk": "^12.0"
+    "facebook/php-business-sdk": "^22.0.1"
   },
   "require-dev": {
     "bytic/phpqatools": "^1.0",
@@ -35,6 +35,14 @@
     "psr-4": {
       "Nip\\FacebookPixel\\Tests\\": "tests/src",
       "Nip\\FacebookPixel\\Tests\\Fixtures\\": "tests/fixtures"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "ergebnis/composer-normalize": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "bytic/phpqatools": true
     }
   }
 }
