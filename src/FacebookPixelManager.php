@@ -9,10 +9,11 @@ namespace ByTIC\FacebookPixel;
  */
 class FacebookPixelManager
 {
-    use Manager\HasAccessTokenTrait;
-    use Manager\HasApiTrait;
-    use Manager\HasEventsTrait;
-    use Manager\HasParamsTrait;
-    use Manager\HasPixelsTrait;
-    use Manager\HasRequestsTrait;
+    use Manager\Behaviours\CanRenderTrait;
+    use Manager\Behaviours\HasAccessTokenTrait;
+    use Manager\Behaviours\HasApiTrait;
+    use Manager\Behaviours\HasEventsTrait;
+    use Manager\Behaviours\HasParamsTrait;
+    use Manager\Behaviours\HasPixelsTrait;
+    use Manager\Behaviours\HasRequestsTrait;
 }

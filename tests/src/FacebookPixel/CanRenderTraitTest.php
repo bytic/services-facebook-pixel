@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Nip\FacebookPixel\Tests\FacebookPixel;
+namespace ByTIC\FacebookPixel\Tests\FacebookPixel;
 
 use ByTIC\FacebookPixel\EventsFactory;
 use ByTIC\FacebookPixel\FacebookPixel;
-use Nip\FacebookPixel\Tests\AbstractTest;
+use ByTIC\FacebookPixel\Tests\TestCase;
 
 /**
  * Class CanRenderTraitTest.
  */
-class CanRenderTraitTest extends AbstractTest
+class CanRenderTraitTest extends TestCase
 {
-    public function testSimpleRender()
+    public function test_SimpleRender()
     {
         $pixel = new FacebookPixel();
         $pixel->setPixelId('9999999');
@@ -23,7 +23,7 @@ class CanRenderTraitTest extends AbstractTest
         self::assertStringContainsString('facebook.com', $html);
     }
 
-    public function testRenderEvents()
+    public function test_RenderEvents()
     {
         $pixel = new FacebookPixel();
         $pixel->setPixelId('9999999');
@@ -31,6 +31,6 @@ class CanRenderTraitTest extends AbstractTest
         $pixel->addEvent(EventsFactory::create('Donate', ['currency' => 'USD', 'value' => 30.00]));
         $html = $pixel->render();
 
-        self::assertStringContainsString("fbq('track', 'Donate', {currency:\"USD\",value:30}", $html);
+        self::assertStringContainsString("fbq('trackSingle', '9999999', 'Donate', {currency:\"USD\",value:30}", $html);
     }
 }

@@ -1,13 +1,15 @@
 <?php
-/** @var FacebookPixel $pixel */
+declare(strict_types=1);
 
 use ByTIC\FacebookPixel\FacebookPixel;
 
+/** @var FacebookPixel $pixel */
 $pixel = $pixel ?? null;
+$pixels = $pixels ?? [$pixel];
 ?>
 <!-- Facebook Pixel Code -->
 <?php
-if (!$pixel) {
+if (!is_array($pixels) || count($pixels) < 1) {
     return;
 }
 ?>
@@ -28,9 +30,11 @@ if (!$pixel) {
         t.src = v;
         s = b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t, s)
-    }(window,
-        document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '<?= $pixel->getPixelId(); ?>'); // Insert your pixel ID here.
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    <?php foreach ($pixels as $pixel) { ?>
+    fbq('init', '<?= $pixel->getPixelId(); ?>');
+    <?php } ?>
     fbq('track', 'PageView');
 </script>
 <noscript>

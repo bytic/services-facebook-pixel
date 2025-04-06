@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\FacebookPixel\Manager;
+namespace ByTIC\FacebookPixel\Manager\Behaviours;
 
 use FacebookAds\Api;
 

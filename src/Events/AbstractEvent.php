@@ -11,6 +11,7 @@ namespace ByTIC\FacebookPixel\Events;
  */
 abstract class AbstractEvent
 {
+    protected ?string $pixelId = null;
     /**
      * @var string
      */
@@ -30,6 +31,23 @@ abstract class AbstractEvent
         if (!empty(static::NAME)) {
             $this->eventName = static::NAME;
         }
+    }
+
+    public function forPixel($pixelId): self
+    {
+        $this->pixelId = $pixelId;
+
+        return $this;
+    }
+
+    public function getPixelId(): ?string
+    {
+        return $this->pixelId;
+    }
+
+    public function hasPixelId(): bool
+    {
+        return !empty($this->pixelId);
     }
 
     public function getEventName(): string

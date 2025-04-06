@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\FacebookPixel\FacebookPixel;
+namespace ByTIC\FacebookPixel\FacebookPixel\Behaviours;
 
 /**
  * Trait HasPixelIdTrait.

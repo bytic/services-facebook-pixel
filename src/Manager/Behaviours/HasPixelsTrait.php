@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\FacebookPixel\Manager;
+namespace ByTIC\FacebookPixel\Manager\Behaviours;
 
 use ByTIC\FacebookPixel\FacebookPixel;
 use ByTIC\FacebookPixel\PixelFactory;
@@ -39,6 +39,29 @@ trait HasPixelsTrait
         }
 
         throw new Exception('No pixel found');
+    }
+
+    /**
+     * @return array|mixed
+     */
+    public function getPixels()
+    {
+        return $this->pixels;
+    }
+
+    /**
+     * @param $pixelId
+     * @param $method
+     * @param ...$args
+     * @return void
+     * @throws Exception
+     */
+    public function callPixelMethod($pixelId, $method, ...$args): void
+    {
+        $pixels = !empty($pixelId) ? [$this->pixel($pixelId)] : $this->getPixels();
+        foreach ($pixels as $pixel) {
+            call_user_func_array([$pixel, $method], $args);
+        }
     }
 
     /**

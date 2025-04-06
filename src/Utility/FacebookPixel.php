@@ -24,10 +24,10 @@ class FacebookPixel
         return call_user_func_array([static::instance(), $method], $parameters);
     }
 
-    public static function instance(): FacebookPixelManager
+    public static function instance($reset = false): FacebookPixelManager
     {
         static $instance;
-        if (!($instance instanceof FacebookPixelManager)) {
+        if ($reset || !($instance instanceof FacebookPixelManager)) {
             $instance = new FacebookPixelManager();
         }
 

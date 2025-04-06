@@ -33,8 +33,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Nip\\FacebookPixel\\Tests\\": "tests/src",
-      "Nip\\FacebookPixel\\Tests\\Fixtures\\": "tests/fixtures"
+      "ByTIC\\FacebookPixel\\Tests\\": "tests/src",
+      "ByTIC\\FacebookPixel\\Tests\\Fixtures\\": "tests/fixtures"
     }
   },
   "config": {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 use ByTIC\FacebookPixel\FacebookPixel;
 use ByTIC\FacebookPixel\Renderer\Events\EventProperties;
+use ByTIC\FacebookPixel\Renderer\Events\EventTrackingMethod;
 
 $events = $events ?? [];
 ?>
@@ -15,7 +16,7 @@ $events = $events ?? [];
         function fbq_await() {
             if (typeof fbq === 'function') {
                 <?php foreach ($events as $event) { ?>
-                fbq('track', '<?= $event->getEventName(); ?>', <?= EventProperties::for($event); ?>);
+                fbq(<?= EventTrackingMethod::for($event); ?>, '<?= $event->getEventName(); ?>', <?= EventProperties::for($event); ?>);
                 <?php } ?>
             } else {
                 setTimeout(fbq_await, 250);

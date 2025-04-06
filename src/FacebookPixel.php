@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace ByTIC\FacebookPixel;
 
-use ByTIC\FacebookPixel\FacebookPixel\CanRenderTrait;
-use ByTIC\FacebookPixel\FacebookPixel\CustomEventsTrait;
-use ByTIC\FacebookPixel\FacebookPixel\HasEventsMemoryTrait;
-use ByTIC\FacebookPixel\FacebookPixel\HasEventsTrait;
-use ByTIC\FacebookPixel\FacebookPixel\HasPixelIdTrait;
+use ByTIC\FacebookPixel\FacebookPixel\Behaviours\CanRenderTrait;
+use ByTIC\FacebookPixel\FacebookPixel\Behaviours\CustomEventsTrait;
+use ByTIC\FacebookPixel\FacebookPixel\Behaviours\HasEventsMemoryTrait;
+use ByTIC\FacebookPixel\FacebookPixel\Behaviours\HasEventsTrait;
+use ByTIC\FacebookPixel\FacebookPixel\Behaviours\HasPixelIdTrait;
 
 /**
  * Class FacebookPixel.

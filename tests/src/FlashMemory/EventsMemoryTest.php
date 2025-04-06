@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Nip\FacebookPixel\Tests\FlashMemory;
+namespace ByTIC\FacebookPixel\Tests\FlashMemory;
 
 use ByTIC\FacebookPixel\Events\CompleteRegistration;
 use ByTIC\FacebookPixel\EventsFactory;
 use ByTIC\FacebookPixel\FlashMemory\EventsMemory;
-use Nip\FacebookPixel\Tests\AbstractTest;
+use ByTIC\FacebookPixel\Tests\TestCase;
 
 /**
  * Class EventsMemoryTest.
  */
-class EventsMemoryTest extends AbstractTest
+class EventsMemoryTest extends TestCase
 {
     public function testKeepDataUntilRead()
     {

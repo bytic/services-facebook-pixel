@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Nip\FacebookPixel\Tests\Utility;
+namespace ByTIC\FacebookPixel\Tests\Utility;
 
+use ByTIC\FacebookPixel\Tests\TestCase;
 use ByTIC\FacebookPixel\Utility\FacebookPixel;
-use Nip\FacebookPixel\Tests\AbstractTest;
 
 /**
  *
  */
-class FacebookPixelTest extends AbstractTest
+class FacebookPixelTest extends TestCase
 {
     public function testCallStatic()
     {

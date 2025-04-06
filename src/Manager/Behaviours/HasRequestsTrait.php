@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\FacebookPixel\Manager;
+namespace ByTIC\FacebookPixel\Manager\Behaviours;
 
 use ByTIC\FacebookPixel\FacebookPixel;
 use ByTIC\FacebookPixel\ServerSide\EventRequestFactory;

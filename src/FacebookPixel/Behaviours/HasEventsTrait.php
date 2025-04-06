@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ByTIC\FacebookPixel\FacebookPixel;
+namespace ByTIC\FacebookPixel\FacebookPixel\Behaviours;
 
 use ByTIC\FacebookPixel\Events\AbstractEvent;
 
@@ -43,6 +43,7 @@ trait HasEventsTrait
      */
     public function addEvent($event)
     {
+        $event->forPixel($this->getPixelId());
         $this->events[] = $event;
     }
 }

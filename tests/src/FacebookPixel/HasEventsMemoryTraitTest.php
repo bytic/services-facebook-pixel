@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Nip\FacebookPixel\Tests\FacebookPixel;
+namespace ByTIC\FacebookPixel\Tests\FacebookPixel;
 
 use ByTIC\FacebookPixel\Events\CompleteRegistration;
 use ByTIC\FacebookPixel\EventsFactory;
 use ByTIC\FacebookPixel\FacebookPixel;
 use ByTIC\FacebookPixel\FlashMemory\EventsMemory;
-use Nip\FacebookPixel\Tests\AbstractTest;
+use ByTIC\FacebookPixel\Tests\TestCase;
 
 /**
  * Class HasEventsMemoryTraitTest.
  */
-class HasEventsMemoryTraitTest extends AbstractTest
+class HasEventsMemoryTraitTest extends TestCase
 {
     public function testAddEventInMemory()
     {
@@ -36,7 +36,7 @@ class HasEventsMemoryTraitTest extends AbstractTest
         $pixel->setPixelId('789');
         $html = $pixel->render();
 
-        self::assertStringContainsString("'track', 'CompleteRegistration'", $html);
-        self::assertStringContainsString("'track', 'AddToCart'", $html);
+        self::assertStringContainsString("'trackSingle', '789', 'CompleteRegistration'", $html);
+        self::assertStringContainsString("'trackSingle', '789', 'AddToCart'", $html);
     }
 }
