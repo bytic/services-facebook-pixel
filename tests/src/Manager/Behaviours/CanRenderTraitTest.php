@@ -29,8 +29,15 @@ class CanRenderTraitTest extends TestCase
         $event2 = EventsFactory::create('Donate', ['currency' => 'USD', 'value' => 30.00]);
         $event2->setEventId('15672a13-e7ab-4c95-ba45-3891bd752c93');
         $manager->addEvent($event2, $pixel2);
-        $html = $manager->render();
 
+        $event3 = EventsFactory::createViewContent()
+            ->withName('Donation Form')
+            ->withType('donation_form')
+            ->withIds([123]);
+        $event3->setEventId('c897136b-7734-4cdf-bca6-d7a27a322c07');
+        $manager->addEvent($event3, $pixel2);
+
+        $html = $manager->render();
         $path = TEST_FIXTURE_PATH . DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'manager_multiple_events.html';
         self::assertStringEqualsFile($path, $html);
     }

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace ByTIC\FacebookPixel\Events;
 
 /**
- * Class CustomEvent.
+ * Class Contact.
  *
  * @author Gabriel Solomon <hello@gabrielsolomon.ro>
  */
-class CustomEvent extends AbstractEvent
+class Contact extends AbstractEvent
 {
-    public const NAME = 'CustomEvent';
+    public const NAME = 'Contact';
 }

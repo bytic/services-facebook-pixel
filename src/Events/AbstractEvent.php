@@ -12,6 +12,7 @@ namespace ByTIC\FacebookPixel\Events;
 abstract class AbstractEvent
 {
     protected ?string $pixelId = null;
+
     /**
      * @var string
      */
@@ -20,6 +21,20 @@ abstract class AbstractEvent
     protected $eventId;
 
     public const NAME = null;
+
+    public const STANDARD_EVENTS = [
+        AddPaymentInfo::NAME,
+        AddToCart::NAME,
+        AddToWishlist::NAME,
+        CompleteRegistration::NAME,
+        Contact::NAME,
+        Donate::NAME,
+        InitiateCheckout::NAME,
+        Lead::NAME,
+        Search::NAME,
+        SubmitApplication::NAME,
+        ViewContent::NAME,
+    ];
 
     /**
      * @var array
@@ -33,6 +48,10 @@ abstract class AbstractEvent
         }
     }
 
+    /**
+     * @param $pixelId
+     * @return $this
+     */
     public function forPixel($pixelId): self
     {
         $this->pixelId = $pixelId;
@@ -82,6 +101,17 @@ abstract class AbstractEvent
     public function getProperties(): array
     {
         return $this->properties;
+    }
+
+    /**
+     * @param $name
+     * @param $value
+     * @return $this
+     */
+    public function setProperty($name, $value): self
+    {
+        $this->properties[$name] = $value;
+        return $this;
     }
 
     public function setProperties(array $properties)

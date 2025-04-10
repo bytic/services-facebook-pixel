@@ -38,6 +38,11 @@
                 currency: "USD",
                 value: 30
             }, {eventID: '15672a13-e7ab-4c95-ba45-3891bd752c93'});
+            fbq('trackSingle', '1111111', 'ViewContent', {
+                content_name: "Donation Form",
+                content_type: "donation_form",
+                content_ids: [123]
+            }, {eventID: 'c897136b-7734-4cdf-bca6-d7a27a322c07'});
         } else {
             setTimeout(fbq_await, 250);
         }
