@@ -22,12 +22,17 @@ trait HasEventsMemoryTrait
         $this->getEventsMemory()->addEvent($event);
     }
 
-    protected function importEventsFromMemory()
+    public function importEventsFromMemory(): void
     {
+        static $imported = false;
+        if ($imported) {
+            return;
+        }
         $events = $this->getEventsMemory()->getPrevious();
         foreach ($events as $event) {
             $this->addEvent($event);
         }
+        $imported = true;
     }
 
     /**

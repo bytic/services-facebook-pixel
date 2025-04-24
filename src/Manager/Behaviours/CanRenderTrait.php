@@ -19,6 +19,7 @@ trait CanRenderTrait
     public function render($options = null)
     {
         $return = '';
+        $this->callPixelMethod(null, 'importEventsFromMemory');
         if ($this->shouldRenderBaseCode($options)) {
             $return .= $this->getRenderer()->render('basecode', ['pixels' => $this->getPixels()]);
         }
