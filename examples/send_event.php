@@ -19,6 +19,12 @@ FacebookPixel::setTestEventCode('123456789');
 $pixel = FacebookPixel::pixel($pixelId);
 
 $event = EventsFactory::create('Lead');
+$event->setProperties(['value' => 1000, 'currency' => 'EUR']);
+$event->encodeUserProperty('email', 'user@example.com');
+$event->encodeUserProperty('phone', '+33612345678');
+$event->encodeUserProperty('first_name', 'John');
+$event->encodeUserProperty('last_name', 'Doe');
+
 FacebookPixel::sendEvent($event);
 
 FacebookPixel::sendEvents([

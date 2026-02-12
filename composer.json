@@ -18,7 +18,7 @@
     "php": "^8.0",
     "ext-json": "*",
     "ext-openssl": "*",
-    "facebook/php-business-sdk": "^22.0.1"
+    "facebook/php-business-sdk": "^24.0"
   },
   "require-dev": {
     "bytic/phpqatools": "^1.0",

@@ -14,9 +14,13 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class UserDataFactory
 {
-    public static function create(): UserData
+    /**
+     * @param $data
+     * @return UserData
+     */
+    public static function create($data = []): UserData
     {
-        return (new UserData())
+        return (new UserData($data))
             ->setClientIpAddress(Util::getIpAddress())
             ->setClientUserAgent(Util::getHttpUserAgent())
             ->setFbp(Util::getFbp())
@@ -26,12 +30,9 @@ class UserDataFactory
     /**
      * @param RequestInterface|Request $request
      */
-    public static function fromRequest(Request $request): UserData
+    public static function fromRequest(Request $request, $data = []): UserData
     {
-        return (new UserData())
-            ->setClientIpAddress($request->getClientIp())
-            ->setClientUserAgent(Util::getHttpUserAgent())
-            ->setFbp(Util::getFbp())
-            ->setFbc(Util::getFbc());
+        return self::create($data)
+            ->setClientIpAddress($request->getClientIp());
     }
 }

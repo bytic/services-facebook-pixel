@@ -41,6 +41,8 @@ abstract class AbstractEvent
      */
     protected $properties = [];
 
+    protected $userProperties = [];
+
     public function __construct()
     {
         if (!empty(static::NAME)) {
@@ -117,5 +119,29 @@ abstract class AbstractEvent
     public function setProperties(array $properties)
     {
         $this->properties = $properties;
+    }
+
+    public function getUserProperties(): array
+    {
+        return $this->userProperties;
+    }
+
+    public function setUserProperties(array $userProperties): void
+    {
+        $this->userProperties = $userProperties;
+    }
+
+    public function setUserProperty($name, $value): self
+    {
+        $this->userProperties[$name] = $value;
+        return $this;
+    }
+
+    public function encodeUserProperty($name, $value): self
+    {
+        $value = (string)$value;
+        $value = strtolower($value);
+        $value = hash('sha256', $value);
+        return $this->setUserProperty($name, $value);
     }
 }

@@ -91,7 +91,8 @@ class EventRequestFactory
                     $this->onRejected
                 );
         } catch (Exception $exception) {
-//            var_dump($e);
+//            var_dump($exception);
+//            die();
         }
     }
 }
